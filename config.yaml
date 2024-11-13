@@ -1,0 +1,27 @@
+devices:
+  - name: switch1
+    type: ssh
+    host: 192.168.1.1
+    username: admin
+    password: secret123
+    enable_secret: enable123
+    device_type: cisco_ios
+
+  - name: switch2
+    type: ssh
+    host: 192.168.1.2
+    username: admin
+    password: secret123
+    device_type: cisco_ios
+
+  - name: ise
+    type: ise
+    host: https://ise.example.com/api
+    username: admin
+    password: secret123
+
+  - name: dnac
+    type: dnac
+    host: https://dnac.example.com/api
+    username: admin
+    password: secret123
