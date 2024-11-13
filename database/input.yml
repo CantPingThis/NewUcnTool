@@ -1,0 +1,9 @@
+---
+ise:
+  LAB:
+    version: '3.2'
+    ip: '192.168.1.197'
+    url: 'https://192.168.1.197'
+    default: True
+    login: 'admin'
+    password: 'C1sco12345'
