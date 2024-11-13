@@ -32,7 +32,7 @@ class NetworkShell(cmd.Cmd):
     def __init__(self):
         super().__init__()
         self.console = Console()
-        #self.manager = NetworkManager()
+        self.manager = NetworkManager()
         self.config: Dict = {}
         self.setup_logging()
         
