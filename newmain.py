@@ -61,6 +61,15 @@ class NetworkShell(cmd.Cmd):
                 password = device['password']
             )
 
+            if device['type'] == 'ssh':
+                connection = SSHConnection(device['host'], creds, device.get('device_type', 'cisco_ios'))
+            else:
+                self.logger.warning(f"Unknown device type: {device['type']}")
+                continue
+
+            self.manger.add_device(device['name'], connection)
+            self.console.print(f"Initialized device: {device['name']}")
+
 
 
     def do_exit(self, arg):

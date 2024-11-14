@@ -11,3 +11,5 @@ class DeviceCredentials:
     password: str
     enable_secret: Optional[str] = None
 
+class SSHConnection(DeviceConnection):
+    def __init__(self, host: str, creds, )
