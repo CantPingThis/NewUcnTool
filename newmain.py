@@ -6,7 +6,8 @@ from typing import Dict
 from rich.console import Console
 
 from network_framework import (
-    DeviceCredentials
+    DeviceCredentials,
+    SSHConnection
 )
 
 class NetworkShell(cmd.Cmd):
