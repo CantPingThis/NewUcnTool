@@ -13,7 +13,7 @@ from rich.syntax import Syntax
 from rich.prompt import Prompt, Confirm
 
 # Import the network framework
-from network_framework import (
+from old_network_framework import (
     DeviceCredentials, 
     SSHConnection, 
     NetworkManager, 

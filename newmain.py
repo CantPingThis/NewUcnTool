@@ -1,9 +1,13 @@
 import cmd
 import logging
 import sys
+import yaml
 from typing import Dict
 from rich.console import Console
 
+from network_framework import (
+    DeviceCredentials
+)
 
 class NetworkShell(cmd.Cmd):
     intro = """
@@ -30,6 +34,34 @@ class NetworkShell(cmd.Cmd):
             ]
         )
         self.logger = logging.getLogger(__name__)
+
+    def do_load(self, arg):
+        """
+        Load configuration from a YAML file.
+        Usage: load <config_file>
+        """
+        try:
+            config_file = arg.strip() or "config.yaml"
+            with open(config_file, 'r') as f:
+                self.config = yaml.safe_load(f)
+            self.initialize_devices()
+            self.console.print(f"Successfully loaded configuration from {config_file}")
+        except Exception as e:
+            self.console.print(f"Error loading config fiel: {e}")
+
+    def initialize_devices(self):
+        """Initialize devices from loaded configuration file"""
+        #self.console.print(self.config.get('devices', []))
+        
+        for device in self.config.get('devices', []):
+            self.console.print(device)
+
+            creds = DeviceCredentials(
+                username = device['username'],
+                password = device['password']
+            )
+
+
 
     def do_exit(self, arg):
         """Exit the network CLI."""
